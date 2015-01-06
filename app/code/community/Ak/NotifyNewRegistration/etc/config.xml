@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Ak  NotifyNewRegistration
+ * This module is Notify to  admin at new Registration .
+ * @category    Ak
+ * @package     Ak_NotifyNewRegistration
+ */
+
+/**
+ * Ak  NotifyNewRegistration
+ *
+ * @category   Ak
+ * @package    Ak_NotifyNewRegistration
+ * @author     Adesh Kumar <adeshsuryan2005@gmail.com>
+ */
+-->
+<config>
+    <modules>
+        <Ak_NotifyNewRegistration>
+            <version>0.1.0</version>
+        </Ak_NotifyNewRegistration>
+    </modules>
+    <global>
+        <helpers>
+            <Ak_NotifyNewRegistration>
+                <class>Ak_NotifyNewRegistration_Helper</class>
+            </Ak_NotifyNewRegistration>
+        </helpers>
+        <models>
+            <Ak_NotifyNewRegistration>
+                <class>Ak_NotifyNewRegistration_Model</class>
+            </Ak_NotifyNewRegistration>
+        </models>
+        <template>
+            <email>
+                <customer_registration_notification_template module="Ak_NotifyNewRegistration">
+                    <label>Notify administrator about new customer</label>
+                    <file>notify_new_customer.html</file>
+                    <type>html</type>
+                </customer_registration_notification_template>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <events>
+            <customer_register_success>
+                <observers>
+                    <Ak_NotifyNewRegistration>
+                        <type>model</type>
+                        <class>Ak_NotifyNewRegistration/observer</class>
+                        <method>customerRegisterSuccess</method>
+                    </Ak_NotifyNewRegistration>
+                </observers>
+            </customer_register_success>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <Ak_NotifyNewRegistration>
+                        <type>model</type>
+                        <class>Ak_NotifyNewRegistration/observer</class>
+                        <method>checkoutTypeOnepageSaveOrderAfter</method>
+                    </Ak_NotifyNewRegistration>
+                </observers>
+            </checkout_type_onepage_save_order_after>
+        </events>
+    </frontend>
+    <default>
+        <customer>
+            <registration_notification>
+                <enabled>1</enabled>
+                <identity>customer_registration_notification</identity>
+                <template>customer_registration_notification_template</template>
+                <copy_method>bcc</copy_method>
+            </registration_notification>
+        </customer>
+    </default>
+</config>

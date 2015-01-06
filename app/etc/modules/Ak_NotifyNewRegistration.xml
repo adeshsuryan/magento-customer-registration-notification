@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Ak  NotifyNewRegistration
+ * This module is Notify to  admin at new Registration .
+ * @category    Ak
+ * @package     Ak_NotifyNewRegistration
+ */
+
+/**
+ * Ak  NotifyNewRegistration
+ *
+ * @category   Ak
+ * @package    Ak_NotifyNewRegistration
+ * @author     Adesh Kumar <adeshsuryan2005@gmail.com>
+ */
+-->
+<config>
+    <modules>
+        <Ak_NotifyNewRegistration>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Ak_NotifyNewRegistration>
+    </modules>
+</config>
